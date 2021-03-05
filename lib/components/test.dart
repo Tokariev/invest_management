@@ -25,20 +25,36 @@ List<Item> generateItems(int numberOfItems) {
 
 /// This is the stateful widget that the main application instantiates.
 class MyExpansionPanel extends StatefulWidget {
+  String cryptoName;
+
+  MyExpansionPanel(String cryptoName) {
+    this.cryptoName = cryptoName;
+  }
+
   @override
-  _MyExpansionPanelState createState() => _MyExpansionPanelState();
+  _MyExpansionPanelState createState() =>
+      _MyExpansionPanelState(this.cryptoName);
 }
 
 /// This is the private State class that goes with MyStatefulWidget.
 class _MyExpansionPanelState extends State<MyExpansionPanel> {
   static const double iconSize = 20.0;
+  String _cryptoName;
 
-  List<Item> _data = generateItems(8);
+  _MyExpansionPanelState(String cryptoName) {
+    this._cryptoName = cryptoName;
+  }
+  List<Item> _data = generateItems(1);
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          color: Color(0xFFF5F5F7),
+          borderRadius: BorderRadius.all(Radius.circular(16)),
+        ),
         child: _buildPanel(),
       ),
     );
@@ -60,7 +76,7 @@ class _MyExpansionPanelState extends State<MyExpansionPanel> {
               //title: Text(item.headerValue),
               title: Row(
                 children: <Widget>[
-                  Expanded(child: Text("Bitcoin BTC")),
+                  Expanded(child: Text(this._cryptoName)),
                   Expanded(child: Text("Total")),
                   Expanded(child: Text("€1.34568")),
                   Expanded(child: Text("€3.00056")),
@@ -153,8 +169,8 @@ class _MyExpansionPanelState extends State<MyExpansionPanel> {
                   ),
                 ],
               ),
-              subtitle: Text('To delete this panel, tap the trash can icon'),
-              trailing: Icon(Icons.delete),
+              //subtitle: Text('To delete this panel, tap the trash can icon'),
+              //trailing: Icon(Icons.delete),
               onTap: () {
                 setState(() {
                   _data.removeWhere((currentItem) => item == currentItem);

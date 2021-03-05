@@ -20,85 +20,125 @@ class MainPage extends StatelessWidget {
           children: [
             buildAppBar(),
             Expanded(
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15.0),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
                           child: Container(
-                            alignment: Alignment.center,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Total invested',
-                                  style: buildTotalStyle(),
-                                ),
-                                Text(
-                                  '20 000€',
-                                  style: buildBoldStyle(),
-                                ),
-                              ],
-                            ),
-                            height: 160.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFF5F5F7),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(16)),
+                            padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                            child: Container(
+                              alignment: Alignment.center,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Total invested',
+                                    style: buildTotalStyle(),
+                                  ),
+                                  Text(
+                                    '20 000€',
+                                    style: buildBoldStyle(),
+                                  ),
+                                ],
+                              ),
+                              height: 160.0,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFF5F5F7),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(16)),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                        Expanded(
                           child: Container(
-                            height: 160.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFF5F5F7),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(16)),
+                            padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                            child: Container(
+                              alignment: Alignment.center,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Total invested',
+                                    style: buildTotalStyle(),
+                                  ),
+                                  Text(
+                                    '20 000€',
+                                    style: buildBoldStyle(),
+                                  ),
+                                ],
+                              ),
+                              height: 160.0,
+                              decoration: BoxDecoration(
+                                  color: Color(0xFFF5F5F7),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(16))),
                             ),
                           ),
                         ),
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                        Expanded(
                           child: Container(
-                            height: 160.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFF5F5F7),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(16)),
+                            padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                            child: Container(
+                              alignment: Alignment.center,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Profit',
+                                    style: buildTotalStyle(),
+                                  ),
+                                  Text(
+                                    '14 650€',
+                                    style: buildBoldStyle(),
+                                  ),
+                                ],
+                              ),
+                              height: 160.0,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFF5F5F7),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(16)),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Investment portfolio',
-                        style: GoogleFonts.openSans(
-                          textStyle: TextStyle(
-                            color: Colors.black,
-                            //letterSpacing: .5,
-                            fontSize: 24.0,
-                            //fontWeight: FontWeight.w700,
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: Text(
+                            'Investment portfolio',
+                            style: GoogleFonts.openSans(
+                              textStyle: TextStyle(
+                                color: Colors.black,
+                                //letterSpacing: .5,
+                                fontSize: 24.0,
+                                //fontWeight: FontWeight.w700,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  //Expanded list BTC
-                  MyExpansionPanel(),
-                ],
+                      ],
+                    ),
+                    //Expanded list BTC
+                    MyExpansionPanel('Bitcoin BTC'),
+                    SizedBox(height: 16),
+                    MyExpansionPanel('Etherium ETH'),
+                    SizedBox(height: 16),
+                    MyExpansionPanel('Cardano ADA'),
+                    SizedBox(height: 16),
+                  ],
+                ),
               ),
             ), //Middle column
             Column(

@@ -548,7 +548,7 @@ class _CustomExpansionPanelListState extends State<CustomExpansionPanelList> {
       items.add(
         MaterialSlice(
           key: _SaltedKey<BuildContext, int>(context, index * 2),
-          color: Colors.white,
+          color: Color(0xFFF5F5F7),
           child: Column(
             children: <Widget>[
               header,
