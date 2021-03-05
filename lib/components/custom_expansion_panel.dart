@@ -231,7 +231,7 @@ class CustomExpansionPanelList extends StatefulWidget {
     this.animationDuration = animDuration, //kThemeAnimationDuration,
     this.expandedHeaderPadding = _kPanelHeaderExpandedDefaultPadding,
     this.dividerColor,
-    this.elevation = 2,
+    this.elevation = 0, //Shadow
   })  : assert(children != null),
         assert(animationDuration != null),
         _allowOnlyOnePanelOpen = false,
