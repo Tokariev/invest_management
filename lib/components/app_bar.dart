@@ -27,13 +27,12 @@ Column buildAppBar() {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                        child: Column(
-                          children: [
-                            buildAppBarIcon(Icons.home),
-                            buildAppBarText('Home'),
-                          ],
-                        ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          buildAppBarIcon(Icons.home),
+                          buildAppBarText('Home'),
+                        ],
                       ),
                       Column(
                         children: [

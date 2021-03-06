@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../components/app_bar.dart';
-import '../components/custom_expansion_panel.dart';
-import '../components/test.dart';
+import '../components/dummy_panel_list.dart';
 
 class MainPage extends StatelessWidget {
   static const textColorGrey = Color(0xFF929292);
@@ -21,14 +20,14 @@ class MainPage extends StatelessWidget {
             buildAppBar(),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(left: 15.0),
+                padding: const EdgeInsets.only(left: 10.0),
                 child: Column(
                   children: [
                     Row(
                       children: [
                         Expanded(
                           child: Container(
-                            padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                            padding: const EdgeInsets.only(top: 20, bottom: 20),
                             child: Container(
                               alignment: Alignment.center,
                               child: Column(
