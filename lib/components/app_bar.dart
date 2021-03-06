@@ -30,7 +30,7 @@ Column buildAppBar(BuildContext context) {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          buildAppBarIcon(Icons.home, context, '/home'),
+                          buildAppBarIcon(Icons.home, context, '/'),
                           buildAppBarText('Home'),
                         ],
                       ),
