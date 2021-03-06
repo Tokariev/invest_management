@@ -17,6 +17,9 @@ class AddPage extends StatelessWidget {
               width: 320,
               padding: EdgeInsets.all(10.0),
               child: TextField(
+                onChanged: (text) {
+                  print("First text field: $text");
+                },
                 autocorrect: true,
                 decoration: InputDecoration(
                   hintText: 'Enter Your Investment Here...',
