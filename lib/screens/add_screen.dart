@@ -12,6 +12,30 @@ class AddPage extends StatelessWidget {
       body: Row(
         children: [
           buildAppBar(context),
+          Container(
+            child: Container(
+              width: 320,
+              padding: EdgeInsets.all(10.0),
+              child: TextField(
+                autocorrect: true,
+                decoration: InputDecoration(
+                  hintText: 'Enter Your Investment Here...',
+                  prefixIcon: Icon(Icons.search),
+                  hintStyle: TextStyle(color: Colors.grey),
+                  filled: true,
+                  fillColor: Color(0xFFF5F5F7),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                    borderSide: BorderSide(color: Color(0xFFF5F5F7), width: 2),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                    borderSide: BorderSide(color: Color(0xFFF5F5F7), width: 2),
+                  ),
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
