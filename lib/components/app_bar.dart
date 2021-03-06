@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-Column buildAppBar() {
+Column buildAppBar(BuildContext context) {
   return Column(
     children: [
       Expanded(
@@ -30,31 +30,31 @@ Column buildAppBar() {
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          buildAppBarIcon(Icons.home),
+                          buildAppBarIcon(Icons.home, context, '/home'),
                           buildAppBarText('Home'),
                         ],
                       ),
                       Column(
                         children: [
-                          buildAppBarIcon(Icons.add),
+                          buildAppBarIcon(Icons.add, context, '/add'),
                           buildAppBarText('Add'),
                         ],
                       ),
                       Column(
                         children: [
-                          buildAppBarIcon(Icons.remove),
+                          buildAppBarIcon(Icons.remove, context, '/remove'),
                           buildAppBarText('Remove'),
                         ],
                       ),
                       Column(
                         children: [
-                          buildAppBarIcon(Icons.edit),
+                          buildAppBarIcon(Icons.edit, context, '/edit'),
                           buildAppBarText('Edit'),
                         ],
                       ),
                       Column(
                         children: [
-                          buildAppBarIcon(Icons.settings),
+                          buildAppBarIcon(Icons.settings, context, '/settings'),
                           buildAppBarText('Settings'),
                         ],
                       )
@@ -64,7 +64,7 @@ Column buildAppBar() {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    buildAppBarIcon(Icons.exit_to_app),
+                    buildAppBarIcon(Icons.exit_to_app, context, '/exit'),
                     SizedBox(height: 65.0)
                   ],
                 ),
@@ -88,14 +88,16 @@ Text buildAppBarText(String text) {
   );
 }
 
-IconButton buildAppBarIcon(IconData icon) {
+IconButton buildAppBarIcon(IconData icon, BuildContext context, String route) {
   return IconButton(
-    //padding: EdgeInsets.only(top: 58.0, bottom: 10.0),
-    icon: Icon(
-      icon,
-      color: Colors.white,
-      size: 30.0,
-    ),
-    onPressed: () {},
-  );
+      //padding: EdgeInsets.only(top: 58.0, bottom: 10.0),
+      icon: Icon(
+        icon,
+        color: Colors.white,
+        size: 30.0,
+      ),
+      onPressed: () {
+        // Navigate to the second screen using a named route.
+        Navigator.pushNamed(context, route);
+      });
 }
