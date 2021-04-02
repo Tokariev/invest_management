@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../http/coingecko_api.dart';
 import '../model/coin_model.dart';
 
-class JobsListView extends StatelessWidget {
+class CoinListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CoingeckoAPI api = new CoingeckoAPI();

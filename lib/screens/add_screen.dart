@@ -51,7 +51,7 @@ class _AddPage extends State<AddPage> {
                   child: Container(
                     padding: EdgeInsets.only(bottom: 20.0),
                     width: 320,
-                    child: JobsListView(),
+                    child: CoinListView(),
                   ),
                 ),
               ],
