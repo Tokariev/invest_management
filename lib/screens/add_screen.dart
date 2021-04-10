@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../components/app_bar.dart';
-import '../view/coin_list_view.dart';
+import '../model/coin_model.dart';
+import '../http/coin_api.dart';
 
 class AddPage extends StatefulWidget {
   @override
@@ -8,6 +9,23 @@ class AddPage extends StatefulWidget {
 }
 
 class _AddPage extends State<AddPage> {
+  List<Coin> _coins = [];
+  List<Coin> _coinsDisplay = [];
+
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    fetchCoins().then((value) {
+      setState(() {
+        _isLoading = false;
+        _coins.addAll(value);
+        _coinsDisplay = _coins;
+      });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +42,13 @@ class _AddPage extends State<AddPage> {
                     child: TextField(
                       onTap: () {},
                       onChanged: (text) {
-                        //////////////
+                        setState(() {
+                          _coinsDisplay = _coins.where((coin) {
+                            return coin.name
+                                .toLowerCase()
+                                .contains(text.toLowerCase());
+                          }).toList();
+                        });
                       },
                       autocorrect: true,
                       decoration: InputDecoration(
@@ -46,18 +70,40 @@ class _AddPage extends State<AddPage> {
                       ),
                     ),
                   ),
-                ),
+                ), //Search input
                 Expanded(
-                  child: Container(
-                    padding: EdgeInsets.only(bottom: 20.0),
-                    width: 320,
-                    child: CoinListView(),
-                  ),
+                  child: ListView.builder(
+                      itemCount: _coinsDisplay.length,
+                      itemBuilder: (context, index) {
+                        if (!_isLoading) {
+                          return _listIndex(index);
+                        } else {
+                          return Center(child: CircularProgressIndicator());
+                        }
+                      }),
                 ),
               ],
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  _listIndex(index) {
+    return Card(
+      child: ListTile(
+        leading: CircleAvatar(
+          child: Image.network(_coinsDisplay[index].image),
+          backgroundColor: Colors.transparent,
+        ),
+        title: Text(_coinsDisplay[index].name,
+            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18)),
+        subtitle: Text(_coinsDisplay[index].symbol.toUpperCase()),
+        trailing: Icon(Icons.add),
+        onTap: () {
+          print(index);
+        },
       ),
     );
   }
