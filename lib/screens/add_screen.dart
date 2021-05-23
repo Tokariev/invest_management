@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../components/app_bar.dart';
 import '../model/coin_model.dart';
 import '../http/coin_api.dart';
+import 'add_coin_screen.dart';
 
 class AddPage extends StatefulWidget {
   @override
@@ -102,7 +103,12 @@ class _AddPage extends State<AddPage> {
         subtitle: Text(_coinsDisplay[index].symbol.toUpperCase()),
         trailing: Icon(Icons.add),
         onTap: () {
-          print(index);
+          print(_coinsDisplay[index].id);
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => AddCoinPage(),
+                  settings: RouteSettings(arguments: _coinsDisplay[index].id)));
         },
       ),
     );

@@ -4,6 +4,7 @@ import 'screens/main_screen.dart';
 
 import 'package:invest_manaement/screens/main_screen.dart';
 import 'package:invest_manaement/screens/add_screen.dart';
+import 'package:invest_manaement/screens/add_coin_screen.dart';
 
 void main() => runApp(MaterialApp(
         title: 'Flutter Demo',
